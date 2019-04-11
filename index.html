@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div ng-controller="controlador as lista">
+    <p>{{nombre}}</p>
+    <ul>
+      <li ng-repeat="pelicula in lista.peliculas">
+        {{pelicula.nombre}}
+        <a href="/pelicula/{{pelicula.id}}"> <button>Ver detalle</button></a>
+         <button ng-click="lista.eliminar(pelicula.id)" data-id="{{pelicula.id}}">Eliminar</button>
+      </li>
+    </ul>
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+  <script src="public/app.js"></script>
+  <script>
+  
+  
+  // var myApp = angular.module('myApp', []);
+  //   myApp.controller('myController', function($scope, $http){
+  //       $http.get('sample_json.js')
+  //       .then(function (response){
+  //         $scope.jsondata = response.data;
+  //         console.log("status:" + response.status);
+  //       }).catch(function(response) {
+  //         console.error('Error occurred:', response.status, response.data);
+  //       }).finally(function() {
+  //         console.log("Task Finished.");
+  //       });
+  //   }); 
+  
+  
+  </script>
+</body>
+</html>

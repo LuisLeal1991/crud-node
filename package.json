@@ -1,0 +1,14 @@
+{
+  "name": "walook-api",
+  "version": "1.0.0",
+  "description": "descripcion de walook-api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "luisleal",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
