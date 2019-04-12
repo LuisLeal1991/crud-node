@@ -17,10 +17,15 @@
     <ul>
       <li ng-repeat="pelicula in lista.peliculas">
         {{pelicula.nombre}}
-        <a href="/pelicula/{{pelicula.id}}">
-          <button>Ver detalle</button>
+        <a href="/pelicula/ver/{{pelicula.id}}">
+          <button>Ver</button>
         </a>
-         <button ng-click="lista.eliminar(pelicula.id)" data-id="{{pelicula.id}}">Eliminar</button>
+        
+        <a href="/pelicula/editar/{{pelicula.id}}">
+          <button>Editar</button>
+        </a>
+
+        <button ng-click="lista.eliminar(pelicula.id)" data-id="{{pelicula.id}}">Eliminar</button>
       </li>
     </ul>
   </div>

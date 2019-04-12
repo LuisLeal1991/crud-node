@@ -79,8 +79,6 @@ app.controller("peliculaAdd", function ($scope, $http) {
         nombre: peli.nombre,
         director: peli.director,
         clasificacion: peli.clasificacion,
-
-
       }
     }).then(function successCallback(response) {
   
@@ -88,8 +86,41 @@ app.controller("peliculaAdd", function ($scope, $http) {
     }, function errorCallback(response) {
   
     });
+  };
+
+})
 
 
+
+app.controller("peliculaEdit", function ($scope, $http) {
+
+  var url_string = window.location.href
+  var url = new URL(url_string).pathname.split('/').pop();
+  var id = url;
+
+
+  var lista = this
+
+  console.log("asdsad")
+
+  lista.submit = function($event, peli) {
+    $event.preventDefault()
+
+    $http({
+      method: 'PUT',
+      url: 'http://localhost:3000/peliculas/' + id,
+      data: {
+        nombre: peli.nombre,
+        director: peli.director,
+        clasificacion: peli.clasificacion,
+      }
+    }).then(function successCallback(response) {
+
+
+    }, function errorCallback(response) {
+
+    });
+    
   };
 
 })

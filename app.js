@@ -4,21 +4,25 @@ const path = require('path');
 
 const router = express.Router();
 
-router.get('/', function(req,res) {
+router.get('/', function(req, res) {
   res.sendFile(path.join(__dirname+'/index.html'));
 });
+
+
 
 
 router.get('/pelicula/nueva', function(req, res) {
   res.sendFile(path.join(__dirname + '/add.html'));
 });
 
-
-
-router.get('/pelicula/:id', function(req, res) {
-  res.sendFile(path.join(__dirname + '/pelicula.html'));
+router.get('/pelicula/editar/:id', function(req, res) {
+  res.sendFile(path.join(__dirname + '/edit.html'));
 });
 
+
+router.get('/pelicula/ver/:id', function(req, res) {
+  res.sendFile(path.join(__dirname + '/pelicula.html'));
+});
 
 
 

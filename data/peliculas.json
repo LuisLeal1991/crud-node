@@ -1,22 +1,10 @@
 {
   "peliculas": [
     {
-      "id": 2,
-      "nombre": "Pulp Fiction",
-      "director": "Tarantino",
-      "clasificacion": "Acción"
-    },
-    {
-      "id": 4,
-      "nombre": "300",
-      "director": "Zack Snyder",
-      "clasificacion": "Acción"
-    },
-    {
-      "id": 5,
-      "nombre": "El silencio de los corderos",
-      "director": "Jonathan Demme",
-      "clasificacion": "Drama"
+      "nombre": "asd",
+      "director": "sadf",
+      "clasificacion": "dsf",
+      "id": 5
     },
     {
       "id": 6,
@@ -31,16 +19,10 @@
       "clasificacion": "Documental"
     },
     {
-      "nombre": "a",
-      "director": "a",
-      "clasificacion": "a",
+      "nombre": "aaa",
+      "director": "aaa",
+      "clasificacion": "aaa",
       "id": 8
-    },
-    {
-      "nombre": "b",
-      "director": "b",
-      "clasificacion": "b",
-      "id": 9
     }
   ],
   "clasificaciones": [
