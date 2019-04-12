@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div ng-controller="peliculaAdd as lista">
+
+
+    <form action="/pelicula/nueva" method="POST" ng-submit="lista.submit($event, peli)">
+      <input type="text" name="nombre" ng-model="peli.nombre"  />
+      <input type="text" name="director" ng-model="peli.director"  />
+      <input type="text" name="clasificacion" ng-model="peli.clasificacion"   />
+      
+
+      <button ng-click="lista.add()">GUARDAR</button>
+    </form>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+  <script src="/public/app.js"></script>
+</body>
+</html>

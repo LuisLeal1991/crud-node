@@ -10,21 +10,26 @@
 
   <div ng-controller="controlador as lista">
     <p>{{nombre}}</p>
+
+    <a href="/pelicula/nueva">
+      <button>Nueva pelicula</button>
+    </a>
     <ul>
       <li ng-repeat="pelicula in lista.peliculas">
         {{pelicula.nombre}}
-        <a href="/pelicula/{{pelicula.id}}"> <button>Ver detalle</button></a>
+        <a href="/pelicula/{{pelicula.id}}">
+          <button>Ver detalle</button>
+        </a>
          <button ng-click="lista.eliminar(pelicula.id)" data-id="{{pelicula.id}}">Eliminar</button>
       </li>
     </ul>
   </div>
 
-
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
   <script src="public/app.js"></script>
   <script>
-  
-  
+
+
   // var myApp = angular.module('myApp', []);
   //   myApp.controller('myController', function($scope, $http){
   //       $http.get('sample_json.js')
@@ -37,8 +42,8 @@
   //         console.log("Task Finished.");
   //       });
   //   }); 
-  
-  
+
+
   </script>
 </body>
 </html>

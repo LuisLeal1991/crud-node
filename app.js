@@ -9,9 +9,17 @@ router.get('/', function(req,res) {
 });
 
 
+router.get('/pelicula/nueva', function(req, res) {
+  res.sendFile(path.join(__dirname + '/add.html'));
+});
+
+
+
 router.get('/pelicula/:id', function(req, res) {
   res.sendFile(path.join(__dirname + '/pelicula.html'));
 });
+
+
 
 
 //add the router

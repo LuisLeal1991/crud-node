@@ -21,22 +21,21 @@ app.controller("controlador", function ($scope, $http) {
     
     lista.peliculas = response.data
   }, function errorCallback(response) {
+
   });
 
 
   lista.eliminar = function(id) {
 
-
     $http({
       method: 'DELETE',
-      url: 'http://localhost:3000/peliculas/'+id
+      url: 'http://localhost:3000/peliculas/' + id
     }).then(function successCallback(response) {
       
       lista.peliculas = response.data
     }, function errorCallback(response) {
 
     });
-
   }
 })
 
@@ -60,8 +59,37 @@ app.controller("pelicula", function ($scope, $http) {
     $scope.director = response.data.director
     $scope.clasificacion = response.data.clasificacion
 
-
   }, function errorCallback(response) {
 
   });
+})
+
+app.controller("peliculaAdd", function ($scope, $http) {
+
+  var lista = this
+
+  lista.submit = function($event, peli) {
+    $event.preventDefault()
+
+    console.log(peli)
+    $http({
+      method: 'POST',
+      url: 'http://localhost:3000/peliculas/',
+      data: {
+        nombre: peli.nombre,
+        director: peli.director,
+        clasificacion: peli.clasificacion,
+
+
+      }
+    }).then(function successCallback(response) {
+  
+  
+    }, function errorCallback(response) {
+  
+    });
+
+
+  };
+
 })
