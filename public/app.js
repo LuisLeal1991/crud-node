@@ -1,4 +1,4 @@
-var  app = angular.module("app", [])
+var app = angular.module("app", [])
 
 // GET    /peliculas
 // GET    /peliculas/{id}
@@ -8,16 +8,53 @@ var  app = angular.module("app", [])
 // DELETE /peliculas/{id}
 // http://localhost:3000/posts
 
-app.controller("controlador", function ($scope, $http) {
-  $scope.nombre = "LISTADO DE PELICULAS"
 
+app.factory('peliculasApi', function($http) {
+  var url =  "http://localhost:3000"
+
+  return {
+    listPeliculas: function() {
+      return $http({
+        method: 'GET',
+        url: url + '/peliculas/'
+      })
+    },
+    eliminarPelicula: function(id) {
+      return $http({
+        method: 'DELETE',
+        url: url + '/peliculas/' + id
+      })
+    },
+    peliculaById: function(id) {
+      return $http({
+        method: 'GET',
+        url: url + '/peliculas/' + id
+      })
+    },
+    peliculaAdd: function(data) {
+      return $http({
+        method: 'POST',
+        url: url + '/peliculas/',
+        data: data
+      })
+    },
+    peliculaEdit: function(id, data) {
+      return $http({
+        method: 'PUT',
+        url: url + '/peliculas/' + id,
+        data: data
+      })
+    }
+  }
+});
+
+
+app.controller("controlador", function ($scope, $http, peliculasApi ) {
+  $scope.nombre = "LISTADO DE PELICULAS"
 
   var lista = this
 
-  $http({
-    method: 'GET',
-    url: 'http://localhost:3000/peliculas/'
-  }).then(function successCallback(response) {
+  peliculasApi.listPeliculas().then(function successCallback(response) {
     
     lista.peliculas = response.data
   }, function errorCallback(response) {
@@ -27,12 +64,15 @@ app.controller("controlador", function ($scope, $http) {
 
   lista.eliminar = function(id) {
 
-    $http({
-      method: 'DELETE',
-      url: 'http://localhost:3000/peliculas/' + id
-    }).then(function successCallback(response) {
+    peliculasApi.eliminarPelicula(id).then(function successCallback(response) {
       
-      lista.peliculas = response.data
+      peliculasApi.listPeliculas().then(function successCallback(response) {
+    
+        lista.peliculas = response.data
+      }, function errorCallback(response) {
+    
+      });
+    
     }, function errorCallback(response) {
 
     });
@@ -41,7 +81,7 @@ app.controller("controlador", function ($scope, $http) {
 
 
 
-app.controller("pelicula", function ($scope, $http) {
+app.controller("pelicula", function ($scope, $http, peliculasApi) {
   $scope.nombre = "PELICULA"
 
   var url_string = window.location.href
@@ -50,10 +90,7 @@ app.controller("pelicula", function ($scope, $http) {
 
   var lista = this
 
-  $http({
-    method: 'GET',
-    url: 'http://localhost:3000/peliculas/' + id
-  }).then(function successCallback(response) {
+  peliculasApi.peliculaById(id).then(function successCallback(response) {
 
     $scope.nombrePelicula = response.data.nombre
     $scope.director = response.data.director
@@ -64,35 +101,27 @@ app.controller("pelicula", function ($scope, $http) {
   });
 })
 
-app.controller("peliculaAdd", function ($scope, $http) {
+app.controller("peliculaAdd", function ($scope, $http, peliculasApi) {
 
   var lista = this
 
   lista.submit = function($event, peli) {
     $event.preventDefault()
 
-    console.log(peli)
-    $http({
-      method: 'POST',
-      url: 'http://localhost:3000/peliculas/',
-      data: {
-        nombre: peli.nombre,
-        director: peli.director,
-        clasificacion: peli.clasificacion,
-      }
+    peliculasApi.peliculaAdd({
+      nombre: peli.nombre,
+      director: peli.director,
+      clasificacion: peli.clasificacion,
     }).then(function successCallback(response) {
-  
   
     }, function errorCallback(response) {
   
     });
   };
-
 })
 
 
-
-app.controller("peliculaEdit", function ($scope, $http) {
+app.controller("peliculaEdit", function ($scope, $http, peliculasApi) {
 
   var url_string = window.location.href
   var url = new URL(url_string).pathname.split('/').pop();
@@ -100,12 +129,7 @@ app.controller("peliculaEdit", function ($scope, $http) {
 
   var lista = this
 
-
-
-  $http({
-    method: 'GET',
-    url: 'http://localhost:3000/peliculas/' + id
-  }).then(function successCallback(response) {
+  peliculasApi.peliculaById(id).then(function successCallback(response) {
     console.log($scope)
 
     $scope.nombrePelicula = response.data.nombre
@@ -117,28 +141,20 @@ app.controller("peliculaEdit", function ($scope, $http) {
   });
 
 
-
   lista.submit = function($event, peli) {
     $event.preventDefault()
 
-    console.log("peli")
-    console.log($scope)
+    var data = {
+      nombre: peli.nombre ? peli.nombre: $scope.nombrePelicula,
+      director: peli.director ? peli.director: $scope.director,
+      clasificacion: peli.clasificacion ? peli.clasificacion: $scope.clasificacion,
+    }
 
-    $http({
-      method: 'PUT',
-      url: 'http://localhost:3000/peliculas/' + id,
-      data: {
-        nombre: peli.nombre ? peli.nombre: $scope.nombrePelicula,
-        director: peli.director ? peli.director: $scope.director,
-        clasificacion: peli.clasificacion ? peli.clasificacion: $scope.clasificacion,
-      }
-    }).then(function successCallback(response) {
-
+    peliculasApi.peliculaEdit(id, data).then(function successCallback(response) {
 
     }, function errorCallback(response) {
 
     });
     
   };
-
 })
