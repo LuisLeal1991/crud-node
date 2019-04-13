@@ -1,12 +1,6 @@
 {
   "peliculas": [
     {
-      "nombre": "asd",
-      "director": "sadf",
-      "clasificacion": "dsf",
-      "id": 5
-    },
-    {
       "id": 6,
       "nombre": "Forrest Gump",
       "director": "Robert Zemeckis",
@@ -23,6 +17,12 @@
       "director": "aaa",
       "clasificacion": "aaa",
       "id": 8
+    },
+    {
+      "nombre": "bb",
+      "director": "bb",
+      "clasificacion": "bb",
+      "id": 9
     }
   ],
   "clasificaciones": [

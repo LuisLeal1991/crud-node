@@ -1,0 +1,15 @@
+npm install nodemon, para monitorear cambios en el codigo y reiniciar el servidor
+"start": "nodemon src/index.js"
+"npm start"
+
+json server para hacer un  test API
+
+babel para ultima version de javascript
+
+dotenv para variables de entorno
+
+
+express
+
+ultima version de Angularjs 1.7.8
+
