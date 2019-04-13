@@ -8,7 +8,6 @@ var app = angular.module("app", [])
 // DELETE /peliculas/{id}
 // http://localhost:3000/posts
 
-
 app.factory('peliculasApi', function($http) {
   var url =  "http://localhost:3000"
 
@@ -48,7 +47,6 @@ app.factory('peliculasApi', function($http) {
   }
 });
 
-
 app.controller("controlador", function ($scope, $http, peliculasApi ) {
   $scope.nombre = "LISTADO DE PELICULAS"
 
@@ -60,7 +58,6 @@ app.controller("controlador", function ($scope, $http, peliculasApi ) {
   }, function errorCallback(response) {
 
   });
-
 
   lista.eliminar = function(id) {
 
@@ -78,8 +75,6 @@ app.controller("controlador", function ($scope, $http, peliculasApi ) {
     });
   }
 })
-
-
 
 app.controller("pelicula", function ($scope, $http, peliculasApi) {
   $scope.nombre = "PELICULA"
@@ -102,7 +97,6 @@ app.controller("pelicula", function ($scope, $http, peliculasApi) {
 })
 
 app.controller("peliculaAdd", function ($scope, $http, peliculasApi) {
-
   var lista = this
 
   lista.submit = function($event, peli) {
@@ -120,9 +114,7 @@ app.controller("peliculaAdd", function ($scope, $http, peliculasApi) {
   };
 })
 
-
 app.controller("peliculaEdit", function ($scope, $http, peliculasApi) {
-
   var url_string = window.location.href
   var url = new URL(url_string).pathname.split('/').pop();
   var id = url;
@@ -139,7 +131,6 @@ app.controller("peliculaEdit", function ($scope, $http, peliculasApi) {
   }, function errorCallback(response) {
 
   });
-
 
   lista.submit = function($event, peli) {
     $event.preventDefault()
