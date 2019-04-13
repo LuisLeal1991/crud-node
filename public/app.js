@@ -98,21 +98,39 @@ app.controller("peliculaEdit", function ($scope, $http) {
   var url = new URL(url_string).pathname.split('/').pop();
   var id = url;
 
-
   var lista = this
 
-  console.log("asdsad")
+
+
+  $http({
+    method: 'GET',
+    url: 'http://localhost:3000/peliculas/' + id
+  }).then(function successCallback(response) {
+    console.log($scope)
+
+    $scope.nombrePelicula = response.data.nombre
+    $scope.director = response.data.director
+    $scope.clasificacion = response.data.clasificacion
+
+  }, function errorCallback(response) {
+
+  });
+
+
 
   lista.submit = function($event, peli) {
     $event.preventDefault()
+
+    console.log("peli")
+    console.log($scope)
 
     $http({
       method: 'PUT',
       url: 'http://localhost:3000/peliculas/' + id,
       data: {
-        nombre: peli.nombre,
-        director: peli.director,
-        clasificacion: peli.clasificacion,
+        nombre: peli.nombre ? peli.nombre: $scope.nombrePelicula,
+        director: peli.director ? peli.director: $scope.director,
+        clasificacion: peli.clasificacion ? peli.clasificacion: $scope.clasificacion,
       }
     }).then(function successCallback(response) {
 

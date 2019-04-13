@@ -8,11 +8,10 @@
 </head>
 <body>
   <div ng-controller="peliculaEdit as lista">
-
     <form action="/pelicula/edit" method="POST" ng-submit="lista.submit($event, peli)">
-      <input type="text" name="nombre" ng-model="peli.nombre"  />
-      <input type="text" name="director" ng-model="peli.director"  />
-      <input type="text" name="clasificacion" ng-model="peli.clasificacion"   />
+      <input ng-value="nombrePelicula"  type="text" name="nombre" ng-model="peli.nombre"  />
+      <input ng-value="director" type="text" name="director" ng-model="peli.director"  />
+      <input ng-value="clasificacion" type="text" name="clasificacion" ng-model="peli.clasificacion"   />
       
       <button ng-click="lista.edit()">GUARDAR</button>
     </form>

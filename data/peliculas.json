@@ -1,28 +1,28 @@
 {
   "peliculas": [
     {
-      "id": 6,
-      "nombre": "Forrest Gump",
-      "director": "Robert Zemeckis",
-      "clasificacion": "Comedia"
-    },
-    {
-      "id": 7,
-      "nombre": "Las Hurdes",
-      "director": "Luis Buñuel",
-      "clasificacion": "Documental"
-    },
-    {
-      "nombre": "aaa",
+      "nombre": "aaaa",
       "director": "aaa",
       "clasificacion": "aaa",
-      "id": 8
+      "id": 6
     },
     {
-      "nombre": "bb",
-      "director": "bb",
-      "clasificacion": "bb",
+      "nombre": "asa",
+      "director": "a",
+      "clasificacion": "asda",
+      "id": 7
+    },
+    {
+      "nombre": "asd",
+      "director": "asd",
+      "clasificacion": "AAaasd",
       "id": 9
+    },
+    {
+      "nombre": "asd",
+      "director": "asd",
+      "clasificacion": "asd",
+      "id": 10
     }
   ],
   "clasificaciones": [
