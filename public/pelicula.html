@@ -5,19 +5,31 @@
   <meta name="viewport" content="width=s, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+
+  <link rel="stylesheet" href="/public/assets/css/bootstrap.min.css" />
 </head>
 <body>
   <div ng-controller="pelicula">
-    <p>{{nombre}}</p>
 
-    <ul>
-      <li>{{nombrePelicula}}</li>
-      <li>{{director}}</li>
-      <li>{{clasificacion}}</li>
-    </ul>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3>{{nombre}}</h3>
+
+          <ul>
+            <li>{{nombrePelicula}}</li>
+            <li>{{director}}</li>
+            <li>{{clasificacion}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
 
   </div>
-  <script src="public/assets/js/angular.min.js"></script>
+  <script src="/public/assets/js/angular.min.js"></script>
+  <script src="/public/assets/js/jquery-1.9.1.js"></script>
+  <script src="/public/assets/js/bootstrap.min.js"></script>
   <script src="/public/app.js"></script>
 </body>
 </html>

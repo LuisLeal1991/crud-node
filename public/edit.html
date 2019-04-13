@@ -5,19 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+
+  <link rel="stylesheet" href="/public/assets/css/bootstrap.min.css" />
 </head>
 <body>
   <div ng-controller="peliculaEdit as lista">
-    <form action="/pelicula/edit" method="POST" ng-submit="lista.submit($event, peli)">
-      <input ng-value="nombrePelicula"  type="text" name="nombre" ng-model="peli.nombre"  />
-      <input ng-value="director" type="text" name="director" ng-model="peli.director"  />
-      <input ng-value="clasificacion" type="text" name="clasificacion" ng-model="peli.clasificacion"   />
-      
-      <button ng-click="lista.edit()">GUARDAR</button>
-    </form>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <form action="/pelicula/edit" method="POST" ng-submit="lista.submit($event, peli)">
+            <input ng-value="nombrePelicula"  type="text" name="nombre" ng-model="peli.nombre"  />
+            <input ng-value="director" type="text" name="director" ng-model="peli.director"  />
+            <input ng-value="clasificacion" type="text" name="clasificacion" ng-model="peli.clasificacion"   />
+            
+            <button ng-click="lista.edit()">GUARDAR</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <script src="public/assets/js/angular.min.js"></script>
+  
+  <script src="/public/assets/js/angular.min.js"></script>
+  <script src="/public/assets/js/jquery-1.9.1.js"></script>
+  <script src="/public/assets/js/bootstrap.min.js"></script>
   <script src="/public/app.js"></script>
 </body>
 </html>

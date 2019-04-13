@@ -3,6 +3,7 @@ npm install nodemon, para monitorear cambios en el codigo y reiniciar el servido
 "npm start"
 
 json server para hacer un  test API
+"json-server --watch peliculas.json"
 
 babel para ultima version de javascript
 

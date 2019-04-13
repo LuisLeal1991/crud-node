@@ -5,32 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+
+  <link rel="stylesheet" href="/public/assets/css/bootstrap.min.css" />
 </head>
 <body>
 
   <div ng-controller="controlador as lista">
-    <p>{{nombre}}</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h3>{{nombre}}</h3>
 
-    <a href="/pelicula/nueva">
-      <button>Nueva pelicula</button>
-    </a>
-    <ul>
-      <li ng-repeat="pelicula in lista.peliculas">
-        {{pelicula.nombre}}
-        <a href="/pelicula/ver/{{pelicula.id}}">
-          <button>Ver</button>
-        </a>
-        
-        <a href="/pelicula/editar/{{pelicula.id}}">
-          <button>Editar</button>
-        </a>
 
-        <button ng-click="lista.eliminar(pelicula.id)" data-id="{{pelicula.id}}">Eliminar</button>
-      </li>
-    </ul>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <a href="/pelicula/nueva">
+                <button class="btn btn-default">Nueva pelicula</button>
+              </a>
+            </div>
+          </div>
+
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th class="text-center">PELICULA</th>
+                <th class="text-center">DIRECTOR</th>
+                <th class="text-center">CLASIFICACION</th>
+                <th class="text-center">CONTROLES</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="pelicula in lista.peliculas">
+                <td>{{pelicula.nombre}}</td>
+                <td>{{pelicula.director}}</td>
+                <td>{{pelicula.clasificacion}}</td>
+                <td>
+                  <ul class="list list-inline">
+                    <li>
+                      <a href="/pelicula/ver/{{pelicula.id}}">
+                        <button class="btn btn-info">Ver</button>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/pelicula/editar/{{pelicula.id}}">
+                        <button class="btn btn-default">Editar</button>
+                      </a>
+                    </li>
+                    <li>
+                      <button class="btn btn-danger"
+                        ng-click="lista.eliminar(pelicula.id)"
+                        data-id="{{pelicula.id}}">Eliminar</button>
+                    </li>
+                  </ul>
+                  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+     
   </div>
 
-  <script src="public/assets/js/angular.min.js"></script>
+  <script src="/public/assets/js/angular.min.js"></script>
+  <script src="/public/assets/js/jquery-1.9.1.js"></script>
+  <script src="/public/assets/js/bootstrap.min.js"></script>
   <script src="/public/app.js"></script>
 
 </body>
