@@ -17,16 +17,19 @@
 
           <form action="/pelicula/edit" method="POST" ng-submit="lista.submit($event, peli)">
             <div class="form-group">
+              <label for="">NOMBRE:</label>
               <input class="form-control" placeholder="NOMBRE" ng-value="nombrePelicula"  type="text" name="nombre" ng-model="peli.nombre" />
             </div>
             <div class="form-group">
+              <label for="">DIRECTOR:</label>
               <input class="form-control" placeholder="DIRECTOR" ng-value="director" type="text" name="director" ng-model="peli.director" />
             </div>
             <div class="form-group">
+            <label for="">CLASIFICACION:</label>
               <input class="form-control" placeholder="CLASIFICACION" ng-value="clasificacion" type="text" name="clasificacion" ng-model="peli.clasificacion"   />
             </div>
             
-            <button ng-click="lista.edit()">GUARDAR</button>
+            <button class="btn btn-default" ng-click="lista.edit()">GUARDAR</button>
           </form>
         </div>
       </div>

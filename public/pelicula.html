@@ -13,13 +13,13 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-2">
           <h3>{{nombre}}</h3>
 
-          <ul>
-            <li>{{nombrePelicula}}</li>
-            <li>{{director}}</li>
-            <li>{{clasificacion}}</li>
+          <ul class="list-group">
+            <li class="list-group-item"><label style="width: 150px;" for="">PELICULA:</label> {{nombrePelicula}}</li>
+            <li class="list-group-item"><label style="width: 150px;" for="">DIRECTOR:</label> {{director}}</li>
+            <li class="list-group-item"><label style="width: 150px;" for="">CLASIFICACION:</label> {{clasificacion}}</li>
           </ul>
         </div>
       </div>
