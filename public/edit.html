@@ -12,11 +12,19 @@
   <div ng-controller="peliculaEdit as lista">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-2">
+            <h3>MODIFICAR PELICULA</h3>
+
           <form action="/pelicula/edit" method="POST" ng-submit="lista.submit($event, peli)">
-            <input ng-value="nombrePelicula"  type="text" name="nombre" ng-model="peli.nombre"  />
-            <input ng-value="director" type="text" name="director" ng-model="peli.director"  />
-            <input ng-value="clasificacion" type="text" name="clasificacion" ng-model="peli.clasificacion"   />
+            <div class="form-group">
+              <input class="form-control" placeholder="NOMBRE" ng-value="nombrePelicula"  type="text" name="nombre" ng-model="peli.nombre" />
+            </div>
+            <div class="form-group">
+              <input class="form-control" placeholder="DIRECTOR" ng-value="director" type="text" name="director" ng-model="peli.director" />
+            </div>
+            <div class="form-group">
+              <input class="form-control" placeholder="CLASIFICACION" ng-value="clasificacion" type="text" name="clasificacion" ng-model="peli.clasificacion"   />
+            </div>
             
             <button ng-click="lista.edit()">GUARDAR</button>
           </form>

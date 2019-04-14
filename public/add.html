@@ -12,13 +12,20 @@
   <div ng-controller="peliculaAdd as lista">
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-2">
+          <h3>NUEVA PELICULA</h3>
           <form action="/pelicula/nueva" method="POST" ng-submit="lista.submit($event, peli)">
-            <input type="text" name="nombre" ng-model="peli.nombre"  />
-            <input type="text" name="director" ng-model="peli.director"  />
-            <input type="text" name="clasificacion" ng-model="peli.clasificacion"   />
+            <div class="form-group">
+              <input placeholder="NOMBRE" class="form-control" type="text" name="nombre" ng-model="peli.nombre"  />
+            </div>
+            <div class="form-group">
+              <input placeholder="DIRECTOR" class="form-control" type="text" name="director" ng-model="peli.director"  />
+            </div>
+            <div class="form-group">
+              <input placeholder="CLASIFICACION" class="form-control" type="text" name="clasificacion" ng-model="peli.clasificacion"   />
+            </div>
   
-            <button ng-click="lista.add()">GUARDAR</button>
+            <button class="btn btn-default" ng-click="lista.add()">GUARDAR</button>
           </form>
         </div>
       </div>
